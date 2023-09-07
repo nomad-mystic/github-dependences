@@ -1,0 +1,21 @@
+{
+  "name": "github-dependences",
+  "version": "0.0.1",
+  "description": "This React App will show, update, commit, and push repositories to GitHub",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nomad-mystic/wordpress-scaffold-cli.git"
+  },
+  "keywords": [
+    "GitHub",
+    "React",
+    "Dependence Managment"
+  ],
+  "author": "Keith Murphy",
+  "license": "ISC"
+}
