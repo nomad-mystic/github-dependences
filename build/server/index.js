@@ -12,10 +12,11 @@ const dirname = path.dirname(filename);
 app.get('/', (req, res) => {
     res.sendFile(path.join(dirname, '../index.html'));
 });
-app.use(express.static(path.join(dirname, '../front-end')));
-const server = http.createServer(app);
-server.listen(app.get('PORT'), () => {
+console.log(path.join(dirname, '../app'));
+app.use(express.static(path.join(dirname, '../app')));
+const index = http.createServer(app);
+index.listen(app.get('PORT'), () => {
     console.log('Express server listening on port ' + app.get('PORT'));
-    console.log(path.join(dirname, '../front-end'));
+    console.log(path.join(dirname, '../app'));
 });
-export default server;
+export default index;

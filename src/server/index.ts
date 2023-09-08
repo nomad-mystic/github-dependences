@@ -26,18 +26,20 @@ app.get('/', (req: Request, res: Response) => {
     res.sendFile(path.join(dirname, '../index.html'));
 });
 
+console.log(path.join(dirname, '../app'));
+
 // Static Assets
-app.use(express.static(path.join(dirname, '../front-end')));
+app.use(express.static(path.join(dirname, '../app')));
 
 // app.get('/', routes.index)
 // app.get('/users', user.list)
 
 // Create the server
-const server: http.Server = http.createServer(app);
+const index: http.Server = http.createServer(app);
 
-server.listen(app.get('PORT'), () =>{
+index.listen(app.get('PORT'), () =>{
     console.log('Express server listening on port ' + app.get('PORT'));
-    console.log(path.join(dirname, '../front-end'));
+    console.log(path.join(dirname, '../app'));
 });
 
-export default server;
+export default index;
