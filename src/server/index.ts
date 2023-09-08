@@ -1,45 +1,60 @@
 // Core modules
-import http, {IncomingMessage, Server } from 'http';
+import http, {IncomingMessage, Server} from 'http';
 import path from 'path';
-import { fileURLToPath } from "url";
+import {fileURLToPath} from "url";
 
 // Community Modules
-import express, { Express, Request, Response } from 'express';
+import express, {Express, Request, Response} from 'express';
 import morgan from 'morgan';
 
-// Build our app
-const app: Express = express();
+// Routes
+import KeyRoutes from './routes/key-routes.js';
 
-// Set ENV
-app.set('PORT', 9000);
 
-// Middleware
-app.use(morgan('dev'));
-app.use(express.json());
+const rootApp = async (): Promise<void> => {
+    try {
+        // Build our app
+        const app: Express = express();
 
-// @todo make this a method
-const filename: string = fileURLToPath(import.meta.url);
-const dirname: string = path.dirname(filename);
+        // Set ENV
+        app.set('PORT', 9000);
 
-// @todo Extract this into methods
-app.get('/', (req: Request, res: Response) => {
-    res.sendFile(path.join(dirname, '../index.html'));
-});
+        // Middleware
+        app.use(morgan('dev'));
+        app.use(express.json());
 
-console.log(path.join(dirname, '../app'));
+        // @todo make this a method
+        const filename: string = fileURLToPath(import.meta.url);
+        const dirname: string = path.dirname(filename);
 
-// Static Assets
-app.use(express.static(path.join(dirname, '../app')));
+        // @todo Extract this into methods
+        app.get('/', (req: Request, res: Response) => {
+            res.sendFile(path.join(dirname, '../index.html'));
+        });
 
-// app.get('/', routes.index)
-// app.get('/users', user.list)
+        // Static Assets
+        app.use(express.static(path.join(dirname, '../app')));
 
-// Create the server
-const index: http.Server = http.createServer(app);
+        // const router = express.Router();
 
-index.listen(app.get('PORT'), () =>{
-    console.log('Express server listening on port ' + app.get('PORT'));
-    console.log(path.join(dirname, '../app'));
-});
+        app.use('/key', new KeyRoutes().router);
 
-export default index;
+        // router.get('/testing', (req: Request, res: Response) => {
+        //     res.send('Get testing page');
+        // });
+        //
+        // app.use('/calendar', router)
+
+        app.listen(app.get('PORT'), () => {
+            console.log('Express server listening on port ' + app.get('PORT'));
+        });
+
+    } catch (err: any) {
+        console.log('rootApp()');
+        console.log(err);
+    }
+};
+
+await rootApp();
+
+export default rootApp;
