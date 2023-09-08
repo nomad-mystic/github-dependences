@@ -4,8 +4,7 @@
   "description": "This React App will show, update, commit, and push repositories to GitHub",
   "type": "module",
   "scripts": {
-    "start": "nodemon ./dist/server.js",
-    "dev": "concurrently \"tsc --watch --project ./\" \"nodemon -q build/back-end/server.js\" \"npm run webpack\"",
+    "dev": "concurrently \"tsc --watch --project ./\" \"nodemon -q build/server/index.js\" \"npm run webpack\"",
     "development": "tsc --watch --project ./",
     "webpack": "webpack -w --config=webpack.config.js",
     "prod": "npm run production",
