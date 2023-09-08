@@ -2,12 +2,12 @@
   "name": "github-dependencies",
   "version": "0.0.1",
   "description": "This React App will show, update, commit, and push repositories to GitHub",
-  "main": "index.js",
   "type": "module",
   "scripts": {
     "start": "nodemon ./dist/server.js",
-    "dev": "concurrently \"tsc --watch --project ./\" \"nodemon -q ./dist/server.js\"",
+    "dev": "concurrently \"tsc --watch --project ./\" \"nodemon -q build/back-end/server.js\" \"npm run webpack\"",
     "development": "tsc --watch --project ./",
+    "webpack": "webpack -w --config=webpack.config.js",
     "prod": "npm run production",
     "production:build": "tsc --project ./",
     "postpack": "tsc --project ./"
@@ -29,11 +29,17 @@
     "@types/node": "^20.5.9",
     "express": "^4.18.2",
     "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "typescript": "^5.2.2"
   },
   "devDependencies": {
+    "@types/react": "^18.2.21",
+    "@types/react-dom": "^18.2.7",
     "concurrently": "^8.2.1",
     "morgan": "^1.10.0",
-    "nodemon": "^3.0.1"
+    "nodemon": "^3.0.1",
+    "ts-loader": "^9.4.4",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4"
   }
 }
