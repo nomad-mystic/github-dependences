@@ -6,10 +6,10 @@ const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
 
 const config = {
-    entry: './src/front-end/index.tsx',
+    entry: './src/app/index.tsx',
     output: {
-        path: path.resolve(dirname, 'build/front-end'),
-        filename: 'bundle.js',
+        path: path.resolve(dirname, 'build/app'),
+        filename: 'index.js',
     },
     mode: 'development',
     module: {
