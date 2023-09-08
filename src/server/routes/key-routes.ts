@@ -15,7 +15,7 @@ export default class KeyRoutes {
     constructor() {
         this.router = express.Router();
         this.getKey();
-        this.updateCreate();
+        this.createKey();
         this.deleteKey();
     }
 
@@ -45,7 +45,7 @@ export default class KeyRoutes {
      *
      * @return {void}
      */
-    public updateCreate = (): void => {
+    public createKey = (): void => {
         try {
 
             this.router.post('/create', (req: Request, res: Response): void => {

@@ -9,8 +9,16 @@ import morgan from 'morgan';
 
 // Routes
 import KeyRoutes from './routes/key-routes.js';
+import ReposRoutes from './routes/repos-routes.js';
 
-
+/**
+ * @description
+ * @public
+ * @author Keith Murphy | nomadmystics@gmail.com
+ * @link https://stackoverflow.com/questions/72269530/typescript-class-with-express-mounted-route
+ *
+ * @return
+ */
 const rootApp = async (): Promise<void> => {
     try {
         // Build our app
@@ -35,15 +43,9 @@ const rootApp = async (): Promise<void> => {
         // Static Assets
         app.use(express.static(path.join(dirname, '../app')));
 
-        // const router = express.Router();
-
         app.use('/key', new KeyRoutes().router);
+        app.use('/repos', new ReposRoutes().router);
 
-        // router.get('/testing', (req: Request, res: Response) => {
-        //     res.send('Get testing page');
-        // });
-        //
-        // app.use('/calendar', router)
 
         app.listen(app.get('PORT'), () => {
             console.log('Express server listening on port ' + app.get('PORT'));

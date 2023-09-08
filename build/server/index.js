@@ -3,6 +3,7 @@ import { fileURLToPath } from "url";
 import express from 'express';
 import morgan from 'morgan';
 import KeyRoutes from './routes/key-routes.js';
+import ReposRoutes from './routes/repos-routes.js';
 const rootApp = async () => {
     try {
         const app = express();
@@ -16,6 +17,7 @@ const rootApp = async () => {
         });
         app.use(express.static(path.join(dirname, '../app')));
         app.use('/key', new KeyRoutes().router);
+        app.use('/repos', new ReposRoutes().router);
         app.listen(app.get('PORT'), () => {
             console.log('Express server listening on port ' + app.get('PORT'));
         });
