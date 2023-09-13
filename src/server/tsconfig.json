@@ -1,0 +1,29 @@
+{
+    "display": "Node 18",
+    "compilerOptions": {
+        "module": "node16",
+        "target": "es2019",
+        "strict": true,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
+        "allowSyntheticDefaultImports": true,
+        "outDir": "../../build/server",
+        "rootDir": "./",
+        "moduleResolution": "node16",
+        "sourceMap": false,
+    },
+    "compileOnSave": true,
+    "exclude": [
+        "../app"
+    ],
+    "include": [
+        "./"
+    ],
+    "watchOptions": {
+        "excludeDirectories": [
+            "**/node_modules",
+            "../../build"
+        ]
+    }
+}

@@ -1,0 +1,38 @@
+{
+    "include": [
+        "./**/*.ts",
+        "./**/*.tsx"
+    ],
+    "exclude": [
+        "../server"
+    ],
+    "compilerOptions": {
+        "incremental": true,
+        "outDir": "../../build/app",
+        "target": "es5",
+        "module": "esnext",
+        "lib": ["DOM", "ESNext"],
+        "sourceMap": true,
+        "importHelpers": true,
+        "declaration": true,
+        "rootDir": "./",
+        "strict": true,
+        "noFallthroughCasesInSwitch": true,
+        "allowJs": false,
+        "jsx": "react",
+        "moduleResolution": "node",
+        "baseUrl": ".",
+        "forceConsistentCasingInFileNames": true,
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "experimentalDecorators": true
+    },
+    "compileOnSave": true,
+    "watchOptions": {
+        "excludeDirectories": [
+            "**/node_modules",
+            "../../build",
+            "../src/server"
+        ]
+    }
+}

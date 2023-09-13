@@ -32,6 +32,7 @@ const rootApp = async (): Promise<void> => {
         app.use(express.json());
 
         // @todo make this a method
+        // @ts-ignore
         const filename: string = fileURLToPath(import.meta.url);
         const dirname: string = path.dirname(filename);
 
@@ -45,7 +46,6 @@ const rootApp = async (): Promise<void> => {
 
         app.use('/key', new KeyRoutes().router);
         app.use('/repos', new ReposRoutes().router);
-
 
         app.listen(app.get('PORT'), () => {
             console.log('Express server listening on port ' + app.get('PORT'));

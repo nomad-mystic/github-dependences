@@ -1,10 +1,11 @@
-import express, {Express, Request, Response, Router} from 'express';
+// Community Modules
+import express, {Request, Response, Router} from 'express';
 import { Octokit } from '@octokit/core';
 import { request } from '@octokit/request';
 
 /**
  * @classdesc
- * @class
+ * @class ReposRoutes
  * @author Keith Murphy | nomadmystics@gmail.com
  */
 export default class ReposRoutes {
@@ -30,7 +31,7 @@ export default class ReposRoutes {
         try {
 
             this.router.get('/get/all', async (req: Request, res: Response): Promise<void> => {
-                const octokit: Octokit = new Octokit({
+                new Octokit({
                     auth: process.env.GITHUB_API_KEY,
                 });
 
