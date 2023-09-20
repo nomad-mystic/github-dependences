@@ -4,14 +4,11 @@
     "description": "This React App will show, update, commit, and push repositories to GitHub",
     "type": "module",
     "scripts": {
-        "start": "echo \"Testing\"",
+        "start": "node index.js",
         "dev": "npm run development",
         "development": "concurrently \"NODE_ENV=development npm run webpack:watch\" \"nodemon -q ../../build/server/index.js\"",
         "prod": "npm run production",
-        "production": "tsc -p src/backend/tsconfig.json && tsc -p src/frontend/tsconfig.json",
-        "webpack:watch": "webpack -w --config=webpack.config.js",
-        "webpack": "webpack --config=webpack.config.js",
-        "server": "node build/server/index.js",
+        "production": "tsc -p tsconfig.json",
         "postpack": "tsc --project ./"
     },
     "repository": {
@@ -37,17 +34,13 @@
         "@types/express": "^4.17.17",
         "@types/morgan": "^1.9.5",
         "@types/node": "^20.5.9",
-        "@types/react": "^18.2.21",
-        "@types/react-dom": "^18.2.7",
         "express": "^4.18.2",
-        "react": "^18.2.0",
-        "react-dom": "^18.2.0",
         "typescript": "^5.2.2",
-        "ts-loader": "^9.4.4"
+        "ts-loader": "^9.4.4",
+        "morgan": "^1.10.0"
     },
     "devDependencies": {
         "concurrently": "^8.2.1",
-        "morgan": "^1.10.0",
         "nodemon": "^3.0.1"
     }
 }
