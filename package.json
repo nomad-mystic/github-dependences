@@ -6,9 +6,9 @@
     "scripts": {
         "start": "echo \"Testing\"",
         "dev": "npm run development",
-        "development": "concurrently \"NODE_ENV=development npm run webpack:watch\" \"nodemon -q ../../build/server/index.js\"",
+        "development": "npm run development --workspaces",
         "prod": "npm run production",
-        "production": "tsc -p src/backend/tsconfig.json && tsc -p src/frontend/tsconfig.json",
+        "production": "npm run production --workspaces",
         "webpack:watch": "webpack -w --config=webpack.config.js",
         "webpack": "webpack --config=webpack.config.js",
         "server": "node build/server/index.js",
@@ -42,8 +42,8 @@
         "express": "^4.18.2",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
-        "typescript": "^5.2.2",
-        "ts-loader": "^9.4.4"
+        "ts-loader": "^9.4.4",
+        "typescript": "^5.2.2"
     },
     "devDependencies": {
         "concurrently": "^8.2.1",

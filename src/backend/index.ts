@@ -25,7 +25,7 @@ const rootApp = async (): Promise<void> => {
         const app: Express = express();
 
         // Set ENV
-        app.set('PORT', 9000);
+        app.set('PORT', 3000);
 
         // Middleware
         app.use(morgan('dev'));
@@ -50,6 +50,8 @@ const rootApp = async (): Promise<void> => {
         app.listen(app.get('PORT'), () => {
             console.log('Express server listening on port ' + app.get('PORT'));
         });
+
+        console.log('Some log')
 
     } catch (err: any) {
         console.log('rootApp()');

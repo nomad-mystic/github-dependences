@@ -7,7 +7,7 @@ services:
       - 3000:3000
     stdin_open: true
     volumes:
-      - ./frontend:/usr/src/app
+      - ./src/frontend:/usr/src/app
       - /usr/src/app/node_modules
     restart: always
     networks:
@@ -21,7 +21,7 @@ services:
       context: ./src/backend
       target: development
     volumes:
-      - ./backend:/usr/src/app
+      - ./src/backend:/usr/src/app
       - /usr/src/app/node_modules
     depends_on:
       - mongo
