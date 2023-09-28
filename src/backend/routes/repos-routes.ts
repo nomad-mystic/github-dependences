@@ -1,5 +1,5 @@
 // Community Modules
-import express, {Request, Response, Router} from 'express';
+import express, { Request, Response, Router } from 'express';
 import { Octokit } from '@octokit/core';
 import { request } from '@octokit/request';
 
@@ -43,6 +43,19 @@ export default class ReposRoutes {
                 });
 
                 res.send(repos);
+
+                // if (repos.status === 200) {
+                //
+                //     res.status(200);
+                //
+                //     res.send(repos);
+                //
+                // } else {
+                //
+                //     res.status(repos.status);
+                //
+                //     res.send(repos.status);
+                // }
             });
 
         } catch (err: any) {

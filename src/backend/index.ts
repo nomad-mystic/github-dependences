@@ -48,11 +48,11 @@ const rootApp = async (): Promise<void> => {
         // Static Assets
         // app.use(express.static(path.join(dirname, '../app')));
 
-        app.use('api/v1.0/key', new KeyRoutes().router);
-        app.use('api/v1.0/repos', new ReposRoutes().router);
+        app.use('/api/v1.0/key', new KeyRoutes().router);
+        app.use('/api/v1.0/repos', new ReposRoutes().router);
 
         app.listen(app.get('PORT'), () => {
-            console.log('Express server listening on port ' + app.get('PORT'));
+            console.log('Express server listening on port repos' + app.get('PORT'));
         });
 
     } catch (err: any) {
