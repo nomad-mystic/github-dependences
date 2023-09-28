@@ -6,7 +6,7 @@
     "scripts": {
         "start": "echo \"Testing\"",
         "dev": "npm run development",
-        "development": "npm run development --workspaces",
+        "development": "concurrently \"./src/frontend/node_modules/bin/react-scripts start\" \"tsc -w -p ./src/backend/tsconfig.json\" \"nodemon -q ./src/backend/build/index.js\"",
         "prod": "npm run production",
         "production": "npm run production --workspaces",
         "webpack:watch": "webpack -w --config=webpack.config.js",
