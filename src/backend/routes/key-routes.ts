@@ -29,7 +29,7 @@ export default class KeyRoutes {
     public getKey = (): void => {
         try {
 
-            this.router.get('/get', (req: Request, res: Response): void => {
+            this.router.get('', (req: Request, res: Response): void => {
                 res.send('Get key page');
             });
 
@@ -48,7 +48,7 @@ export default class KeyRoutes {
     public createKey = (): void => {
         try {
 
-            this.router.post('/create', (req: Request, res: Response): void => {
+            this.router.post('/:key', (req: Request, res: Response): void => {
                 res.send('Create key page');
             });
 
@@ -67,7 +67,7 @@ export default class KeyRoutes {
     public deleteKey = (): void => {
         try {
 
-            this.router.delete('/remove', (req: Request, res: Response): void => {
+            this.router.delete('/:key', (req: Request, res: Response): void => {
                 res.send('Remove key page');
             });
 

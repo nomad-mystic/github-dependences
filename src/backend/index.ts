@@ -25,7 +25,7 @@ const rootApp = async (): Promise<void> => {
         const app: Express = express();
 
         // Set ENV
-        app.set('PORT', 9000);
+        app.set('PORT', 3000);
 
         // Middleware
         app.use(morgan('dev'));
@@ -38,14 +38,18 @@ const rootApp = async (): Promise<void> => {
 
         // @todo Extract this into methods
         app.get('/', (req: Request, res: Response) => {
-            res.sendFile(path.join(dirname, '../index.html'));
+
+            res.send({
+                'testing': res,
+            });
+            // res.sendFile(path.join(dirname, 'public'));
         });
 
         // Static Assets
-        app.use(express.static(path.join(dirname, '../app')));
+        // app.use(express.static(path.join(dirname, '../app')));
 
-        app.use('/key', new KeyRoutes().router);
-        app.use('/repos', new ReposRoutes().router);
+        app.use('api/v1.0/key', new KeyRoutes().router);
+        app.use('api/v1.0/repos', new ReposRoutes().router);
 
         app.listen(app.get('PORT'), () => {
             console.log('Express server listening on port ' + app.get('PORT'));

@@ -4,14 +4,11 @@
     "description": "This React App will show, update, commit, and push repositories to GitHub",
     "type": "module",
     "scripts": {
-        "start": "echo \"Testing\"",
+        "start": "node build/index.js",
         "dev": "npm run development",
-        "development": "concurrently \"./src/frontend/node_modules/bin/react-scripts start\" \"tsc -w -p ./src/backend/tsconfig.json\" \"nodemon -q ./src/backend/build/index.js\"",
+        "development": "nodemon",
         "prod": "npm run production",
-        "production": "npm run production --workspaces",
-        "webpack:watch": "webpack -w --config=webpack.config.js",
-        "webpack": "webpack --config=webpack.config.js",
-        "server": "node build/server/index.js",
+        "production": "tsc -p tsconfig.json",
         "postpack": "tsc --project ./"
     },
     "repository": {
@@ -21,6 +18,7 @@
     "bugs": {
         "url": "https://github.com/nomad-mystic/github-dependencies/issues"
     },
+    "prefix": "./",
     "homepage": "https://github.com/nomad-mystic/github-dependencies#readme",
     "keywords": [
         "GitHub",
@@ -37,17 +35,14 @@
         "@types/express": "^4.17.17",
         "@types/morgan": "^1.9.5",
         "@types/node": "^20.5.9",
-        "@types/react": "^18.2.21",
-        "@types/react-dom": "^18.2.7",
         "express": "^4.18.2",
-        "react": "^18.2.0",
-        "react-dom": "^18.2.0",
+        "morgan": "^1.10.0",
         "ts-loader": "^9.4.4",
         "typescript": "^5.2.2"
     },
     "devDependencies": {
         "concurrently": "^8.2.1",
-        "morgan": "^1.10.0",
-        "nodemon": "^3.0.1"
+        "nodemon": "^3.0.1",
+        "ts-node": "^10.9.1"
     }
 }

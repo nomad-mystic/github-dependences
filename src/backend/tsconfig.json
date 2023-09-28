@@ -8,14 +8,14 @@
         "skipLibCheck": true,
         "forceConsistentCasingInFileNames": true,
         "allowSyntheticDefaultImports": true,
-        "outDir": "../../build/server",
+        "outDir": "build",
         "rootDir": "./",
         "moduleResolution": "node16",
         "sourceMap": false,
     },
     "compileOnSave": true,
     "exclude": [
-        "../app"
+        "../frontend"
     ],
     "include": [
         "./"

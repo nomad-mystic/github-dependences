@@ -30,7 +30,7 @@ export default class ReposRoutes {
     public getAll = (): void => {
         try {
 
-            this.router.get('/get/all', async (req: Request, res: Response): Promise<void> => {
+            this.router.get('/all', async (req: Request, res: Response): Promise<void> => {
                 new Octokit({
                     auth: process.env.GITHUB_API_KEY,
                 });
@@ -60,7 +60,7 @@ export default class ReposRoutes {
     public getOne = (): void => {
         try {
 
-            this.router.get('/get/:id', (req: Request, res: Response): void => {
+            this.router.get('/:id', (req: Request, res: Response): void => {
                 res.send('Get Repos by ID page');
             });
 
