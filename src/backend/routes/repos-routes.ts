@@ -2,6 +2,7 @@
 import express, { Request, Response, Router } from 'express';
 import { Octokit } from '@octokit/core';
 import { request } from '@octokit/request';
+import { OctokitResponse } from '@octokit/types';
 
 /**
  * @classdesc
@@ -31,11 +32,13 @@ export default class ReposRoutes {
         try {
 
             this.router.get('/all', async (req: Request, res: Response): Promise<void> => {
+                console.log(req);
+
                 new Octokit({
                     auth: process.env.GITHUB_API_KEY,
                 });
 
-                const repos = await request('GET /users/{username}/repos', {
+                const repos: OctokitResponse<any> = await request('GET /users/{username}/repos', {
                     username: 'nomad-mystic',
                     headers: {
                         'X-GitHub-Api-Version': '2022-11-28'

@@ -37,17 +37,16 @@ const rootApp = async (): Promise<void> => {
         const dirname: string = path.dirname(filename);
 
         // @todo Extract this into methods
-        app.get('/', (req: Request, res: Response) => {
+        app.get('/test', (req: Request, res: Response) => {
 
-            res.send({
+            console.log(req);
+
+            res.json({
                 'testing': res,
             });
-            // res.sendFile(path.join(dirname, 'public'));
         });
 
-        // Static Assets
-        // app.use(express.static(path.join(dirname, '../app')));
-
+        // Append routes
         app.use('/api/v1.0/key', new KeyRoutes().router);
         app.use('/api/v1.0/repos', new ReposRoutes().router);
 

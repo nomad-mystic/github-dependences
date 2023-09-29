@@ -2,8 +2,7 @@
   "ignore": [
     "**/*.test.ts",
     "**/*.spec.ts",
-    "node_modules",
-    "src/backend/build"
+    "node_modules"
   ],
   "watch": [
     "./"

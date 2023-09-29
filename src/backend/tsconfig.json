@@ -15,7 +15,8 @@
     },
     "compileOnSave": true,
     "exclude": [
-        "../frontend-save"
+        "../frontend",
+        "./build"
     ],
     "include": [
         "./"

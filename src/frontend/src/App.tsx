@@ -1,13 +1,25 @@
-import {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
-function App() {
-    const [count, setCount] = useState(0)
+const App = (): React.JSX.Element => {
+    const [count, setCount] = useState<number>(0)
 
-    useEffect(() => {
-        fetch('/api/v1.0/repos/all').then((res) => res.text()).then((data) => console.log(data));
+    useEffect((): void => {
+
+        const fetchData = async () => {
+            const data = await fetch('/test').then((res) => res.text());
+
+            console.log(data);
+
+            fetch('/test').then((res) => console.log(res));
+        }
+
+        fetchData()
+            // make sure to catch any error
+            .catch(console.error);
+
     }, []);
 
     return (
